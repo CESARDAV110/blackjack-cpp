@@ -1,4 +1,6 @@
 # blackjack-cpp
+
+![descarga.jpeg](..%2F..%2FOneDrive%2FIm%C3%A1genes%2FSaved%20Pictures%2Fdescarga.jpeg)
 A simple Blackjack game in c++
 <h1>BLACK JACK</h1>
 <h3>Integrantes del equipo</h3>
