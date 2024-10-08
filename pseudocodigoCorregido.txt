@@ -1,0 +1,69 @@
+NOMBRE: PRINCIPAL
+DECLARACION:
+ENTEROS: JUGADOR, MAQUINA, CARTA;
+CADENA: MENSAJE_JUADOR, MENSAJE_MAQUINA;
+subprocesos {
+declarar subprocesos:
+nombre del subproceso plus_card (isJUGADOR) {
+	carta = draw_card;
+sí(isJUGADOR) ENTONCES {
+	JUGADOR += carta;
+	MENSAJE_JUGADOR+= " " + carta;
+}
+ELSE SINO {
+ENTONCES:
+MAQUINA += carta;
+MENSAJE_MAQUINA += " " + carta;
+}
+}
+Nombre del subproceso mostar_inicioJuego ( ) {
+IMPRIMIR: MENSAJE_JUAGDOR;
+IMPRIMIR: MENSAJE_MAQUINA;
+}
+Nombre del subproceso add_card ( ) {
+WHILE (JUGADOR<21) HACER {
+ESCRIBIR:” ¿deseas otra carta? ”,,” (S/N).”;
+LEER: respuesta;
+SI (respuesta == “S” || respuesta == “s”)  ENTONCES {
+	HACER: JUGADOR += carta;
+	MENSAJE_JUGADOR+=carta;
+	IMPRIMIR: MENSAJE_JUGADOR;
+		SI (JUGADOR>21) HACER {
+IMPRIMIR:” has perdido tu puntaje es mayor a 21”;
+}
+SINO 
+SI(JUGADOR==21) HACER {
+IMPRIMIR: “¡FELICIDADES, HAS GANADO! BLACKJACK ¡”;
+}
+}
+ROMPER;
+}
+Nombre del subproceso seeMachineCards ( ){
+SI (JUGADOR<21) HACER
+IMPRIMIR: MENSAJE_MAQUINA;
+HACER: SI(MAQUINA>JUGADOR) ENTONCES {
+	HACER:
+IMPRIMIR: ” MAQUINA HA GANADO”;
+	} SINO 
+SI (JUGADOR >MAQUINA) ENTONCES {
+	HACER:
+IMPRIMIR: ” JUGADOR HAS GANADO”;
+
+}
+IMPRIMIR: EMPATE!!;
+}
+}
+	main [
+IMPRIMIR: "BIENVENIDO JUGADOR";
+JUGADOR = 0;
+MAQUINA = 0;
+plus_card(true);
+plus_card(true);
+plus_card(false);
+plus_card(false);
+mostrar_inicioJuego ( );
+add_card( );
+seeMachineCards ( )
+IMPRIMIR:”Que tenga buen día sr/sra”;
+	]
+
